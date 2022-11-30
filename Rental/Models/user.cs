@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Rental.Models
+﻿namespace Rental.Models
 {
-    internal class user
+    public class User
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public User(int userId, string userName, int userAge)
+        {
+            this.Id = userId;
+            this.Name = userName;
+            this.Age = userAge;
+        }
     }
 }

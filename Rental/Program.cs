@@ -26,15 +26,12 @@ class Program
             Console.WriteLine($"{movie.Id} {movie.Title}");
         }
 
-        string movieChoiceId = Console.ReadLine();
-        while (!availableMoviesForUser.Any(x => x.Id.ToString() == movieChoiceId))
-        {
-            Console.WriteLine("Invalid selection. You have to select a valid option");
-            movieChoiceId = Console.ReadLine();
-        }
+        string movieId = Console.ReadLine();
 
+        string movieChoiceId = MovieValidation.ValidateMovieSelection(movieId);
+                
         Movie userMovie = movies.Where(u => u.Id == Convert.ToInt16(movieChoiceId)).FirstOrDefault();
 
-        Console.WriteLine($"You have successfully rented {userMovie.Title}");
+        Console.WriteLine($"\nYou have successfully rented {userMovie.Title}");
     }
 }
